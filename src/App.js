@@ -1,23 +1,39 @@
 import logo from './logo.svg';
 import './App.css';
+import Login from './pages/login'
+import UserPage from './pages/userPage'
+import {Routes} from 'react-router-dom'
+import {Route} from 'react-router'
+import axios from 'axios'
+import { AuthProvider } from './context/auth';
+import AuthRoute from './util/AuthRoute'
 
 function App() {
-  return (
+ 
+  axios.defaults.baseURL="http://localhost:8000"
+  axios.defaults.withCredentials = true 
+ 
+ return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <AuthProvider>
+    
+     <Routes>
+    
+     <Route 
+     exact  
+     path="/" 
+     element={<AuthRoute><Login/></AuthRoute>}
+     />
+    
+     <Route 
+     exact
+     path="/userPage" 
+     element={ <UserPage/>}
+     />
+     
+     </Routes>
+    
+    </AuthProvider>
     </div>
   );
 }
