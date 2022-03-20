@@ -18,19 +18,16 @@ function App() {
     <AuthProvider>
     
      <Routes>
-    
-     <Route 
+      <Route 
      exact  
      path="/" 
      element={<AuthRoute><Login/></AuthRoute>}
      />
-    
      <Route 
      exact
      path="/userPage" 
      element={ <UserPage/>}
      />
-     
      </Routes>
     
     </AuthProvider>

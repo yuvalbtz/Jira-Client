@@ -23,16 +23,18 @@ function UserPage() {
         issueTypeName:'',
         summary:'',
         description:'',
-        
-       
-
-    })
-    const isEmpty = !Object.values(issueDetails).every(x => ( x !== '' && x !== null)); 
+     })
+    
+   const isEmpty = !Object.values(issueDetails).every(x => ( x !== '' && x !== null)); 
+    
     console.log('isEmpty', isEmpty);
      
    function handleChange(e){
-        setIssueDetails({...issueDetails, [e.target.name]:e.target.value})
-        console.log(issueDetails);
+        setIssueDetails({
+          ...issueDetails, 
+          [e.target.name]:e.target.value
+        })
+      //console.log(issueDetails);
         
      }
   
@@ -42,7 +44,7 @@ function UserPage() {
      axios({method:'post',url:'/createIssue',data:issueDetails})
       .then(({data}) => {
        console.log(data.message);
-       setSnackMessage(`issue ${data.message.key} was created succesfully!`)
+       setSnackMessage(`Issue ${data.message.key} Was Created Succesfully!`)
        setSnackBarOpen(true)
        setLoading(false)
       

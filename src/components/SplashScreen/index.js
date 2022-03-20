@@ -8,13 +8,18 @@ function Index({open}) {
     return (
       
           <Backdrop
-           sx={{ color: '#fff',backgroundColor:'#1976D2', display:'flex', flexDirection:'column', zIndex: (theme) => theme.zIndex.drawer + 1 , width:'300px'}}
+           sx={{ 
+             color: '#fff',
+             backgroundColor:'#1976D2', 
+             display:'flex', 
+             flexDirection:'column', 
+             zIndex: (theme) => theme.zIndex.drawer + 1 , width:'300px'}}
            open={open}       
           >
           <Typography>
            Connecting To Your Account...
            </Typography>
-           <CircularProgress color="inherit" />
+           <CircularProgress sx={{marginTop:'15px'}} size={30} color="inherit"  />
          </Backdrop>  
       
     )

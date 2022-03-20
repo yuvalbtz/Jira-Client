@@ -6,16 +6,14 @@ import { useNavigate } from 'react-router';
 import { AuthContext } from '../../context/auth';
 
 function Index() {
-   const navigate = useNavigate()
+   
+  const navigate = useNavigate()
+   
    const {user, logout} = useContext(AuthContext)
     
     const settings = ['Logout'];
-    const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
   
-    const handleOpenNavMenu = (event) => {
-      setAnchorElNav(event.currentTarget);
-    };
     const handleOpenUserMenu = (event) => {
       setAnchorElUser(event.currentTarget);
     };
@@ -23,9 +21,7 @@ function Index() {
       setAnchorElUser(null);
     };
    
-    const handleCloseNavMenu = () => {
-        setAnchorElNav(null);
-      };
+    
    
       function handleLogout(){
         

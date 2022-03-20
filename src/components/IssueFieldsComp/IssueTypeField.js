@@ -34,28 +34,17 @@ function IssueTypeField({setIssueDetails, issueDetails}) {
           })
           .catch((err) => {
            console.log(err);
-          }) 
-
-         
-    
-    
+          })   
      },[issueDetails.projectName])
 
 
-
-
-
-    function onSelectTag(e, value) {
-      console.log(value);
+   function onSelectTag(e, value) {
         setIssueDetails({
         ...issueDetails,  
         issueTypeName: value.name
         })
         }
      
-
-       
-    
     return (
        <>
       {options[0] ? <Autocomplete

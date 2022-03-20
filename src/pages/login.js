@@ -6,12 +6,10 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import {AuthContext} from '../context/auth'
 import CircularProgress from '@mui/material/CircularProgress';
-import { useNavigate } from 'react-router';
 
 
 function Login() {
     
-  const navigate = useNavigate()
 
     const [errors, setErrors] = React.useState({})
     
@@ -91,7 +89,7 @@ function Login() {
               Jira Client
           </Typography>
           
-          
+      
            <Box 
               sx={{
                     border:'1px solid black',
@@ -162,8 +160,10 @@ function Login() {
            <FormControl
             sx={{padding:'15px', width:'90%'}}
            >
+            
              {loading ? (<CircularProgress color="primary" sx={{margin:'0 auto'}}/>) : ( 
-             <Button
+            
+            <Button
                 sx={{textTransform:'none'}} 
                 onSubmit={handleSubmit}
                 variant="contained"
@@ -180,7 +180,6 @@ function Login() {
               </Typography> 
            )}
              
- 
            </Box>
              
              <Typography variant="subtitle1" sx={{marginTop:'3px'}}>

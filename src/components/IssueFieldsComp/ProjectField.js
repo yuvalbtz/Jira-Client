@@ -25,9 +25,7 @@ const [options, setOptions] = React.useState([])
           .catch((err) => {
            console.log(err);
           }) 
-        
          
-    
      },[])
 
 

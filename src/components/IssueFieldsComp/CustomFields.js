@@ -1,4 +1,4 @@
-import { Autocomplete, CircularProgress, TextField } from '@mui/material'
+import { Autocomplete, TextField } from '@mui/material'
 import React from 'react'
 import axios from 'axios'
 
@@ -12,16 +12,15 @@ function CustomFields({setIssueDetails, issueDetails}) {
      }
 
      React.useEffect(() => {
-         
-               
-        axios({method:'get',url:`/getAllProjects/${keyProps}`, 
+          axios({method:'get',url:`/getAllProjects/${keyProps}`, 
         params:{
           KEY:keyProps
         }
       })
             .then(({data}) => {
             console.log("custom data",data.message);
-            if(data.message.projects[0].issuetypes.length > 0 &&  data.message.projects[0].issuetypes[0].hasOwnProperty("fields")){
+            if(data.message.projects[0].issuetypes.length > 0 &&  
+                data.message.projects[0].issuetypes[0].hasOwnProperty("fields")){
                 setCustomFields({})
                 setCustomFields(data.message.projects[0].issuetypes[0].fields)
             }
@@ -59,7 +58,8 @@ function CustomFields({setIssueDetails, issueDetails}) {
     
     
     return (
-        customFields && customFields.hasOwnProperty("customfield_10040") && customFields.customfield_10040.schema.type === "option" && (
+        customFields && customFields.hasOwnProperty("customfield_10040") && 
+        customFields.customfield_10040.schema.type === "option" && (
             <Autocomplete
             onChange={onSelectTag}
             disablePortal

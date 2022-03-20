@@ -26,7 +26,6 @@ function Index({message, open, setOpen}) {
       };
 
 
-
     return (
         <div>
           <Snackbar

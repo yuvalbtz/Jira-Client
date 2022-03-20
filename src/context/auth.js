@@ -50,11 +50,7 @@ function AuthProvider(props) {
         console.log(err.response.data.message);
         setLoading(false)
         logout() 
-      
-      
-      })
-
-    
+       })
 
     },[])
 
@@ -73,7 +69,7 @@ function AuthProvider(props) {
 
   return (
    <>
-     {loading && ( <SplashScreen open={loading}/>)}
+     {loading && (<SplashScreen open={loading}/>)}
     <AuthContext.Provider
       value={{ user: state.user, login, logout }}
       {...props}
